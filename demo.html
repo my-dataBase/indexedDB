@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>indexedDB</title>
+	<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+	<div class="page">
+		<form id="form" class="form">
+			<h2>创建项目</h2>
+		    <p><label for="name">项目名称：</label><input id="name" name="name"></p>
+		    <p><label for="begin">开始时间：</label><input type="date" value="2017-07-16" id="begin" name="begin"></p>
+		    <p><label for="end">预计结束：</label><input type="date" value="2057-07-16" id="end" name="end"></p>
+		    <p><label for="person">参与人员：</label><input name="person" placeholder="多人空格分隔" id="person"></p>
+		    <p><label for="remark">补充说明：</label><textarea rows="5" placeholder="请输入备注信息" name="remark" id="remark"></textarea></p>
+		    <p style="margin-left:160px;"><span class="btn btn-info" id="add">添加数据</span></p>
+		</form>
+
+		<div id="result" class="result">
+		    <table>
+		        <thead>
+		            <tr>
+		                <th>项目名称</th>
+		                <th>开始时间</th>
+		                <th>结束时间</th>
+		                <th>参与人员</th>
+		                <th>补充说明</th>
+		                <th width="100">操作</th>
+		            </tr>
+		        </thead>
+		        <tbody></tbody>
+		    </table>
+		    <div id="status" class="status none">加载中...</div>
+		</div>
+	</div>
+
+	<!-- 列表数据模板 -->
+	<script id="tplList" type="text/template">
+		<tr>
+		    <td data-key="name" data-id="$id$" contenteditable="plaintext-only">$name$</td>
+		    <td data-key="begin" data-id="$id$" contenteditable="plaintext-only">$begin$</td>
+		    <td data-key="end" data-id="$id$" contenteditable="plaintext-only">$end$</td>
+		    <td data-key="person" data-id="$id$" contenteditable="plaintext-only">$person$</td>
+		    <td data-key="remark" data-id="$id$" contenteditable="plaintext-only">$remark$</td>
+		    <td><span class="font font-danger del" data-id="$id$">删除</span></td>
+		</tr>
+	</script>
+
+	<script src="./jquery.js"></script>
+	<script src="./dataBase.js"></script>
+</body>
+</html>
